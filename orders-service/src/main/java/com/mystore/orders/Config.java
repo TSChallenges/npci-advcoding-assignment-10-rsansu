@@ -1,6 +1,13 @@
 package com.mystore.orders;
 
-public class Config {
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.client.RestTemplate;
 
-    // TODO: YOUR CODE HERE to create a Load Balanced Bean for RestTemplate
+public class Config {
+    @Bean
+    @LoadBalanced
+    public RestTemplate restTemplate() {
+        return new RestTemplate();
+    }
 }
